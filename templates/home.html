@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Approval Application</title>
+</head>
+<body>
+    <h1>Loan Approval Application</h1>
+    <form id="loan-form">
+        <label for="loan-id">Loan ID:</label>
+        <input type="text" id="loan-id" name="loan-id" required><br><br>
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br><br>
+        
+        <label for="married">Married:</label>
+        <select id="married" name="married">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+        
+        <label for="dependents">Dependents:</label>
+        <input type="text" id="dependents" name="dependents" required><br><br>
+        
+        <label for="education">Education:</label>
+        <select id="education" name="education">
+            <option value="Graduate">Graduate</option>
+            <option value="Not Graduate">Not Graduate</option>
+        </select><br><br>
+        
+        <label for="self-employed">Self Employed:</label>
+        <select id="self-employed" name="self-employed">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+        
+        <label for="applicant-income">Applicant Income:</label>
+        <input type="number" id="applicant-income" name="applicant-income" required><br><br>
+        
+        <label for="coapplicant-income">Coapplicant Income:</label>
+        <input type="number" id="coapplicant-income" name="coapplicant-income" required><br><br>
+        
+        <label for="loan-amount">Loan Amount:</label>
+        <input type="number" id="loan-amount" name="loan-amount" required><br><br>
+        
+        <label for="loan-term">Loan Amount Term (Months):</label>
+        <input type="number" id="loan-term" name="loan-term" required><br><br>
+        
+        <label for="credit-history">Credit History:</label>
+        <select id="credit-history" name="credit-history">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br><br>
+        
+        <label for="property-area">Property Area:</label>
+        <select id="property-area" name="property-area">
+            <option value="Urban">Urban</option>
+            <option value="Semiurban">Semiurban</option>
+            <option value="Rural">Rural</option>
+        </select><br><br>
+        
+        <label for="loan-status">Loan Status:</label>
+        <select id="loan-status" name="loan-status">
+            <option value="Y">Approved</option>
+            <option value="N">Not Approved</option>
+        </select><br><br>
+        
+        <button type="button" id="submit-button">Check Eligibility</button>
+    </form>
+    
+    <p id="result"></p>
+    
+    <script>
+        document.getElementById("submit-button").addEventListener("click", function() {
+            const loanId = document.getElementById("loan-id").value;
+            const gender = document.getElementById("gender").value;
+            const married = document.getElementById("married").value;
+            const dependents = document.getElementById("dependents").value;
+            const education = document.getElementById("education").value;
+            const selfEmployed = document.getElementById("self-employed").value;
+            const applicantIncome = parseFloat(document.getElementById("applicant-income").value);
+            const coapplicantIncome = parseFloat(document.getElementById("coapplicant-income").value);
+            const loanAmount = parseFloat(document.getElementById("loan-amount").value);
+            const loanTerm = parseInt(document.getElementById("loan-term").value);
+            const creditHistory = parseInt(document.getElementById("credit-history").value);
+            const propertyArea = document.getElementById("property-area").value;
+            const loanStatus = document.getElementById("loan-status").value;
+            
+            let result = "";
+            if (applicantIncome >= 50000 && creditHistory === 1 && loanAmount <= 200000) {
+                result = "Congratulations! Your loan is approved.";
+            } else {
+                result = "Sorry, your loan application is not approved.";
+            }
+            
+            document.getElementById("result").textContent = result;
+        });
+    </script>
+</body>
+</html>
