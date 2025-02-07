@@ -96,3 +96,43 @@ ls -l /home/ubuntu/mlproject/
 sudo chown -R ubuntu:ubuntu /home/ubuntu/mlproject/
 git config user.name "VipulWarthe"
 git config user.email "vipulwarthey@gmail.com"
+
+## Deploy the model with AWS ElasticBeanstalk and AWS CodePipeline:
+
+-first create IAM role for user
+-roles- create 
+role - select ec2 - 
+
+1) AWSElasticBeanstalkWebTier 
+2) AWSElasticBeanstalkWorkerTier 
+3) AWSElasticBeanstalkMulticontainerDocker
+
+-create role
+
+Elastic beanstalk: 
+-create application-application name-(student performance)
+-platform-python3.7
+-application code-sample application - Presets - Single instance (free tier eligible)
+-Service access-Use an existing service role-aws-elasticbeanstalk-service-role
+-key pair - give any - ec2 instace profile - select created profile - skip to review - submit
+
+-till elastic beanstalk envirnoment geting ready we can not create codepipeline(waite for it)
+
+codepipeline:
+-create pipeline -pipeline name-student_performance
+-service role-new service role-advance setting-default
+-next-source provider-github(version1)-connect to the github-
+-confirm-select repo-mlproject-Branch-main
+-change detection option-Github webhooks-next-
+-Add build stage - skip build stage-next-Deploy-Deploy provider-
+-AWS elastic beanstalk - Region-select your region-next-
+-Application name-student performance-Envirnoment name- studentperformance-env --next- wait for envirnoment create-
+-go to the Applications tab and click- select your application name-next-click on create pipeline
+-click inside in deploy on AWS elastic beanstalk it will open link in browser
+-go to the elastic beanstalk dashboard - you will see the studentperformance-env - click on Domain URL it will open in browser
+-you will see the home page -just write /predictdata after your URL you will see the prediction page.
+
+
+-deletation process - first delete codepipeline then delete elastice beanstalk
+-then terminate the instance
+
