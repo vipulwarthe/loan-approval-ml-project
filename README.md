@@ -28,7 +28,7 @@ updated process:
 
 ## create empty repo in github with name loan-application with README.md and .gitignore file with python extention and select licience type MIT. 
      
-    9  git clone https://github.com/vipulwarthe/loan-approval-project-deploy-with-flask 
+    9  git clone https://github.com/vipulwarthe/loan-approval-ml-project 
  
 Or you can directly clone the repo and work on it.
 
