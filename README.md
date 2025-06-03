@@ -4,7 +4,7 @@ loan approval prediction application
 # Machin learning project on Loan approval Status:
 ===============================================
 
-    ## githug link: https://github.com/vipulwarthe/loan-approval-project-deploy-with-flask
+    ## githug link: https://github.com/vipulwarthe/loan-approval-ml-project
 
 
 The major aim of this project is to predict which of the customers will have their loan approved.
